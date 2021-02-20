@@ -10,19 +10,19 @@ class ALog {
         const val WARN      = 5
         const val ERROR     = 6
 
-        fun e(msg: String) { log(ERROR, msg) }
-        fun w(msg: String) { log(WARN, msg) }
-        fun i(msg: String) { log(INFO, msg) }
-        fun d(msg: String) { log(DEBUG, msg) }
-        fun v(msg: String) { log(VERBOSE, msg) }
+        @JvmStatic fun e(msg: String) { log(ERROR, msg) }
+        @JvmStatic fun w(msg: String) { log(WARN, msg) }
+        @JvmStatic fun i(msg: String) { log(INFO, msg) }
+        @JvmStatic fun d(msg: String) { log(DEBUG, msg) }
+        @JvmStatic fun v(msg: String) { log(VERBOSE, msg) }
 
-        fun e(tag: String, msg: String) { log(ERROR, tag, msg) }
-        fun w(tag: String, msg: String) { log(WARN, tag, msg) }
-        fun i(tag: String, msg: String) { log(INFO, tag, msg) }
-        fun d(tag: String, msg: String) { log(DEBUG, tag, msg) }
-        fun v(tag: String, msg: String) { log(VERBOSE, tag, msg) }
+        @JvmStatic fun e(tag: String, msg: String) { log(ERROR, tag, msg) }
+        @JvmStatic fun w(tag: String, msg: String) { log(WARN, tag, msg) }
+        @JvmStatic fun i(tag: String, msg: String) { log(INFO, tag, msg) }
+        @JvmStatic fun d(tag: String, msg: String) { log(DEBUG, tag, msg) }
+        @JvmStatic fun v(tag: String, msg: String) { log(VERBOSE, tag, msg) }
 
-        fun log(priority: String, tag: String, msg: String) {
+        @JvmStatic fun log(priority: String, tag: String, msg: String) {
             when (priority) {
                 "e" -> log(ERROR, tag, msg)
                 "w" -> log(WARN, tag, msg)
@@ -33,19 +33,19 @@ class ALog {
         }
 
         @Suppress("unused")
-        fun setLevel(level: Int) {
+        @JvmStatic fun setLevel(level: Int) {
             ALog.level = level
         }
 
-        fun setTag(tag: String?) {
+        @JvmStatic fun setTag(tag: String?) {
             appTag = if (!tag.isNullOrEmpty()) "$tag " else ""
         }
 
-        fun addOutput(output: IMessageOutput) {
+        @JvmStatic fun addOutput(output: IMessageOutput) {
             outputs[output.javaClass] = output
         }
 
-        fun clearOutput() {
+        @JvmStatic fun clearOutput() {
             outputs.clear()
         }
 
