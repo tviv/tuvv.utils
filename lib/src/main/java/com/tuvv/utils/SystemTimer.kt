@@ -48,13 +48,13 @@ class SystemTimer() {
 
         @JvmStatic
         fun makeSimpleOperation(context: Context, action: String, zlass: Class<*>): PendingIntent {
-                val intent = Intent(
-                    action,
-                    null,
-                    context,
-                    zlass
-                )
-                return PendingIntent.getBroadcast(context, 0, intent, 0)
+            val intent = Intent(
+                action,
+                null,
+                context,
+                zlass
+            )
+            return PendingIntent.getBroadcast(context, 0, intent, 0)
 
         }
     }

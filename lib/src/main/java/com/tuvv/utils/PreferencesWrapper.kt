@@ -79,7 +79,8 @@ open class PreferencesWrapper(val context: Context) {
         return prefs.getInt(key, 0)
     }
 
-    fun getBooleanValue(key: String): Boolean {
-        return prefs.getBoolean(key, false)
+    @JvmOverloads
+    fun getBooleanValue(key: String, defValue: Boolean = false): Boolean {
+        return prefs.getBoolean(key, defValue)
     }
 }
